@@ -8,11 +8,13 @@ const router = express.Router();
 
 // Define item-related routes
 import itemActions from "./modules/item/itemActions";
-
-router.get("/api/items", itemActions.browse);
-router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
+/* ************************************************************************* */
+import movieActions from "./modules/movie/movieActions";
+
+router.get("/api/movies", movieActions.browse);
+router.get("/api/movies/:id", movieActions.read);
 /* ************************************************************************* */
 
 export default router;
