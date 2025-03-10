@@ -19,7 +19,7 @@ const getMovieById = (id: number) => {
 
 const getUsers = () => {
   return axios
-    .get(`${API}/api/users`)
+    .get(`${API}/api/users`, { withCredentials: true })
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);

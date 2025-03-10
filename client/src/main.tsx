@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import Catalogue from "./pages/Catalogue";
+import Auth from "./pages/auth/Auth";
 import Dashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
 import MovieDetail from "./pages/MovieDetail";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         path: "/catalogue",
         element: <Catalogue />,
         loader: getMovies,
+      },
+      {
+        path: "/auth",
+        element: <Auth />,
       },
       {
         path: "/signup",
