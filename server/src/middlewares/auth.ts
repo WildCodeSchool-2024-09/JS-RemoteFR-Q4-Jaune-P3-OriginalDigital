@@ -29,7 +29,7 @@ const login: RequestHandler = async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await userRepository.readByEmailWithPassword(email);
-
+    console.info(user);
     if (!user) {
       res.sendStatus(422);
     }
@@ -42,7 +42,7 @@ const login: RequestHandler = async (req, res, next) => {
       const payload = {
         id: user.id,
         email: user.email,
-        role: "user",
+        role: user.role,
       };
 
       if (!process.env.APP_SECRET) {
@@ -55,7 +55,8 @@ const login: RequestHandler = async (req, res, next) => {
         expiresIn: "1y",
       });
 
-      res.cookie("auth", token).send("Utilisateur connecté");
+      res.cookie("auth", token);
+      res.send(`${user.role}`);
     }
   } catch (error) {
     next(error);

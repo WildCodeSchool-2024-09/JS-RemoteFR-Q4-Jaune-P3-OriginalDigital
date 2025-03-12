@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SvgIcons from "./SvgIcons";
 import "../styles/signupForm.css";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { Bounce, ToastContainer } from "react-toastify";
 import { createUser } from "../services/request";
 
 const icon = {
@@ -45,23 +45,15 @@ export default function SignupForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await createUser(user);
-      notify();
-      setTimeout(() => {
-        navigate("/login");
-      }, 5000);
+      const success = await createUser(user);
+
+      if (success) {
+        setTimeout(() => {
+          navigate("/login");
+        }, 5000);
+      }
     } catch (error) {
-      toast.error("Erreur lors de la création du compte ❌", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
+      console.error(error);
     }
   };
 
@@ -85,19 +77,6 @@ export default function SignupForm() {
   const toggleCheck = () => {
     setChecked(!checked);
   };
-
-  const notify = () =>
-    toast.success("Votre profil a bien été créé 🚀", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-    });
 
   return (
     <>
@@ -140,7 +119,6 @@ export default function SignupForm() {
             value={user.first_name}
             onChange={handleChangeForm}
             placeholder="Votre prénom"
-            required
           />
           <label htmlFor="last_name">
             Nom<p>*</p>
@@ -152,7 +130,6 @@ export default function SignupForm() {
             value={user.last_name}
             onChange={handleChangeForm}
             placeholder="Votre nom"
-            required
           />
           <label htmlFor="email">
             Email<p>*</p>
@@ -164,7 +141,6 @@ export default function SignupForm() {
             value={user.email}
             onChange={handleChangeForm}
             placeholder="Votre adresse email"
-            required
           />
           <div className="password-input">
             <label htmlFor="password">
@@ -179,7 +155,6 @@ export default function SignupForm() {
               value={user.password}
               onChange={handleChangeForm}
               placeholder="Votre mot de passe"
-              required
             />
             <button type="button" onClick={togglePassword}>
               <SvgIcons
@@ -200,7 +175,6 @@ export default function SignupForm() {
               value={user.confirmPassword}
               onChange={handleChangeForm}
               placeholder="Confirmez votre mot de passe"
-              required
             />
             <button type="button" onClick={toggleConfirmPassword}>
               <SvgIcons

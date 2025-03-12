@@ -23,7 +23,7 @@
   box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.387);
   border-radius: var(--button-radius);
   padding: 2rem 2rem 3rem 2rem;
-  h1 {
+  h2 {
     font-size: 2rem;
   }
   p {

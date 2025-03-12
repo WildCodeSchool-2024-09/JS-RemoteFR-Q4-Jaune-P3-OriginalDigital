@@ -1,27 +1,38 @@
 import axios from "axios";
 import { useState } from "react";
 import "../styles/formdashboard.css";
+import joi from "joi";
 
 export default function FormDashBoard() {
   const [newMovie, setNewMovie] = useState({
     title: "",
     poster: "",
-    releaseYear: "",
+    release_year: "",
     synopsis: "",
     duration: "",
     trailer: "",
     casting: "",
     production: "",
+    landscape_image: "",
   });
 
+  const API = import.meta.env.VITE_API_URL;
   const sendForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3310/api/movies/", newMovie)
+      .post(`${API}/api/movies/`, newMovie)
       .then((response) => {
-        response;
+        if (response.status === 201) {
+          console.info("Film ajouté dans la base de données");
+        } else {
+          alert(response.data.error);
+        }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        if (joi.isError(error)) {
+          console.error(error);
+        }
+      });
   };
 
   const handleChangeMovieForm = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,8 +59,8 @@ export default function FormDashBoard() {
       />
       <p>Date de sortie</p>
       <input
-        type="text"
-        name="releaseYear"
+        type="number"
+        name="release_year"
         onChange={handleChangeMovieForm}
         placeholder="AAAA"
       />
@@ -87,6 +98,13 @@ export default function FormDashBoard() {
         name="production"
         onChange={handleChangeMovieForm}
         placeholder="Noms/prénoms réalisateur"
+      />
+      <p>Landscape</p>
+      <input
+        type="text"
+        name="landscape_image"
+        onChange={handleChangeMovieForm}
+        placeholder="Landscape"
       />
       <input type="submit" className="submit-form" />
     </form>
