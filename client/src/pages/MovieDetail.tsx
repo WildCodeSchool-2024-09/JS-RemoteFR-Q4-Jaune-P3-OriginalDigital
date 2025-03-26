@@ -31,7 +31,20 @@ export default function MovieDetail() {
             </summary>
             <p>{movie.synopsis.substring(50)}</p>
           </details>
-          <FavoriteButton id={movie.id} />
+          <FavoriteButton
+            id={movie.id}
+            title={""}
+            release_year={0}
+            poster={""}
+            duration={""}
+            synopsis={""}
+            trailer={""}
+            casting={""}
+            production={""}
+            landscape_image={""}
+            genres={""}
+            premium={false}
+          />
         </div>
       </div>
       <div className="trailer">

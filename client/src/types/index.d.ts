@@ -54,7 +54,7 @@ interface UserType {
   subscription: boolean;
 }
 
-interface WatchlistType {
+interface WatchlistType extends MovieType {
   id: number;
 }
 

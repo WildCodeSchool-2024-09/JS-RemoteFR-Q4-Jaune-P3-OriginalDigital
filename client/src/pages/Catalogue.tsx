@@ -3,12 +3,14 @@ import MovieCards from "../components/MovieCards";
 import "../styles/catalogue.css";
 
 export default function Catalogue() {
-  const { movies } = useLoaderData() as {
+  const { movies, favorite } = useLoaderData() as {
     movies: MovieType[];
+    favorite: WatchlistType[];
   };
 
   const freeMovies = movies.filter((movie) => !movie.premium);
   const premiumMovies = movies.filter((movie) => movie.premium);
+  const favoriteMovies = favorite.filter((movie) => movie.id);
   const sfMovies = movies.filter((movie) =>
     movie.genres.includes("Science-fiction"),
   );
@@ -39,7 +41,7 @@ export default function Catalogue() {
         </section>
         <h2>Ma Liste</h2>
         <section className="movie-container">
-          {movies.map((movie) => (
+          {favoriteMovies.map((movie) => (
             <MovieCards key={movie.id} movie={movie} />
           ))}
         </section>

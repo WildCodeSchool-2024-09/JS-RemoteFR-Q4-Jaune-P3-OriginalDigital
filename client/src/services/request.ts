@@ -154,6 +154,18 @@ const loginUser = (
     });
 };
 
+const viewFavorites = async () => {
+  try {
+    const response = await axios.get(`${API}/api/users/watchlist`, {
+      withCredentials: true,
+    });
+    return response.data.watchlist;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des favoris :", error);
+    throw error;
+  }
+};
+
 export {
   getAuthorization,
   getAuthorizationForUsersOrAdmin,
@@ -163,4 +175,5 @@ export {
   editMovie,
   createUser,
   loginUser,
+  viewFavorites,
 };
