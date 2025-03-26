@@ -13,7 +13,7 @@ export default function Login() {
     password: "",
   });
 
-  const { setRole } = useAuth();
+  const { setRole, setSubscription } = useAuth();
 
   const handleChangeCredentials = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({
@@ -23,7 +23,7 @@ export default function Login() {
   };
   const sendCredentials = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    loginUser(credentials, navigate, setRole);
+    loginUser(credentials, navigate, setRole, setSubscription);
   };
   return (
     <div>

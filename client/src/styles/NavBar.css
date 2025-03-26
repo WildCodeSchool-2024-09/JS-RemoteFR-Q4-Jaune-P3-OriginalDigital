@@ -1,22 +1,115 @@
+.logo {
+  height: 4rem;
+}
 nav {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  img {
-    width: 50px;
-  }
-  a {
-    border-radius: var(--button-radius);
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background: var(--bg-button);
+  align-items: center;
+  padding: 10px 20px;
+  button {
     border: none;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: var(--body-font);
-    letter-spacing: 0.6px;
+    background-color: var(--bg-button);
     color: var(--secondary-color);
+    padding: 0.5rem;
+    border-radius: var(--button-radius);
+  }
+}
+
+.link-signup {
+  background-color: var(--bg-button);
+  color: var(--secondary-color);
+  padding: 0.5rem;
+  border-radius: var(--button-radius);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  margin-left: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.menu-icon {
+  display: none;
+}
+.link-signup-mobile {
+  display: none;
+}
+
+.disconnect-button-mobile {
+  visibility: hidden;
+}
+@media only screen and (max-width: 792px) {
+  .menu-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 26%;
+    left: 39%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 95%;
+    height: 15rem;
+    background: white;
+    padding: 1.7rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .nav-links li {
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    color: var(--primary-color);
+    ul {
+      display: none;
+    }
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .link-signup {
+    visibility: visible;
+  }
+  .disconnect-button {
+    display: none;
+  }
+  .disconnect-button-mobile {
+    visibility: visible;
   }
 }

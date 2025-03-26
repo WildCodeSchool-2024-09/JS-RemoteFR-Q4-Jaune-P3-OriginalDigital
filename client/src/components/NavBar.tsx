@@ -1,6 +1,8 @@
 import axios from "axios";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth } from "../services/AuthContext";
 
 export default function NavBar() {
@@ -19,6 +21,10 @@ export default function NavBar() {
       });
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
   const links = [
     {
       name: "Accueil",
@@ -36,7 +42,7 @@ export default function NavBar() {
       role: ["anonymous"],
     },
     {
-      name: "catalogue",
+      name: "Catalogue",
       path: "/catalogue",
       role: ["utilisateur", "administrateur"],
     },
@@ -44,20 +50,49 @@ export default function NavBar() {
 
   return (
     <nav>
-      <img src="/Logo_OriginalDigital.webp" alt="logo" />
-      <ul>
-        {links
-          .filter((link) => link.role.includes(role))
-          .map((link) => (
-            <li key={link.name}>
-              <Link to={link.path}>{link.name}</Link>
+      <div className="title">
+        <Link to="/" onClick={closeMenu}>
+          <img src="/Logo_OriginalDigital.webp" alt="logo" className="logo" />
+        </Link>
+      </div>
+
+      {role !== "anonymous" && (
+        <div className="menu-container">
+          <div
+            className="menu-icon"
+            onClick={toggleMenu}
+            onKeyDown={toggleMenu}
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
+          <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+            {links
+              .filter((link) => link.role.includes(role))
+              .map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} onClick={closeMenu}>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            <li className="disconnect-button-mobile">
+              <button type="button" onClick={disconnect}>
+                Se déconnecter
+              </button>
             </li>
-          ))}
-      </ul>
+          </ul>
+        </div>
+      )}
       {role === "anonymous" ? (
-        <Link to="/signup">Nous rejoindre</Link>
+        <Link to="/login" className="link-signup">
+          Se connecter
+        </Link>
       ) : (
-        <button type="button" onClick={disconnect}>
+        <button
+          type="button"
+          onClick={disconnect}
+          className="disconnect-button"
+        >
           Se déconnecter
         </button>
       )}

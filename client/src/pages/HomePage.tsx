@@ -12,7 +12,7 @@ export default function HomePage() {
       <section className="top-element">
         <h1>L’original au service du digital</h1>
         <p>
-          Profitez d' un catalogue qui contient le meilleur du cinéma. Saisissez
+          Profitez d'un catalogue qui contient le meilleur du cinéma. Saisissez
           votre adresse e-mail pour nous rejoindre.
         </p>
         <div className="input-mail">
@@ -66,7 +66,7 @@ export default function HomePage() {
         </div>
       </section>
       <div className="bottom-element">
-        <h2>N' attendez plus!</h2>
+        <h2>N'attendez plus!</h2>
         <Link to="/">Se connecter</Link>
       </div>
     </section>

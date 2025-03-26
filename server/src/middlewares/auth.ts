@@ -29,7 +29,6 @@ const login: RequestHandler = async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await userRepository.readByEmailWithPassword(email);
-    console.info(user);
     if (!user) {
       res.sendStatus(422);
     }
@@ -43,6 +42,7 @@ const login: RequestHandler = async (req, res, next) => {
         id: user.id,
         email: user.email,
         role: user.role,
+        subscription: user.subscription,
       };
 
       if (!process.env.APP_SECRET) {
@@ -59,6 +59,7 @@ const login: RequestHandler = async (req, res, next) => {
         message: "Connexion réussie",
         role: payload.role,
         email: payload.email,
+        subscription: payload.subscription,
       });
     }
   } catch (error) {
@@ -125,6 +126,53 @@ const logout: RequestHandler = async (req, res, next) => {
   }
 };
 
+const upgradeToPremium: RequestHandler = async (req, res, next) => {
+  try {
+    const user_id = req.user.id;
+
+    const affectedRows = await userRepository.updatePremium({
+      id: user_id,
+      subscription: true,
+    });
+
+    if (!affectedRows) {
+      res.status(400).json({ message: "Mise à jour échouée" });
+    }
+
+    const updatedUser = await userRepository.read(user_id);
+
+    if (!updatedUser) {
+      res.sendStatus(404);
+    } else {
+      const payload = {
+        id: updatedUser.id,
+        email: updatedUser.email,
+        role: updatedUser.role,
+        subscription: updatedUser.subscription,
+      };
+
+      if (!process.env.APP_SECRET) {
+        throw new Error(
+          "Vous n'avez pas configuré votre APP SECRET dans le .env",
+        );
+      }
+
+      const newToken = await jwt.sign(payload, process.env.APP_SECRET, {
+        expiresIn: "1y",
+      });
+
+      res.cookie("auth", newToken).json({
+        message: "Abonnement premium activé",
+        role: payload.role,
+        email: payload.email,
+        subscription: payload.subscription,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 export default {
   hashPassword,
   login,
@@ -132,4 +180,5 @@ export default {
   checkIfAdmin,
   checkIfAdminOrUser,
   logout,
+  upgradeToPremium,
 };

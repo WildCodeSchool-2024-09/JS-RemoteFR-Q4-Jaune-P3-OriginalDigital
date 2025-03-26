@@ -19,7 +19,7 @@ create table movie (
   casting TEXT NOT NULL,
   production TEXT NOT NULL,
   landscape_image VARCHAR(255) DEFAULT NULL,
-  premium BOOLEAN DEFAULT 1
+  premium BOOLEAN DEFAULT TRUE
 );
 
 create table genre (
@@ -143,8 +143,8 @@ VALUES
 
 insert into user ( first_name, last_name, email, hashed_password, subscription, role)
 VALUES
-("Brayan", "Fagete", "adminod@gmail.com","$argon2id$v=19$m=19456,t=2,p=1$bu7ilozTjfTl0BIpGcpf+w$9EfzE01omfSwpvC7PGLuH/3mtmjQF1V7n5b8Yc4QoI0", "0", "administrateur"),
-("Alex", "Taranne", "wild@gmail.com", "$argon2id$v=19$m=19456,t=2,p=1$bu7ilozTjfTl0BIpGcpf+w$9EfzE01omfSwpvC7PGLuH/3mtmjQF1V7n5b8Yc4QoI0", "0", "utilisateur" );
+("Brayan", "Fagete", "adminod@gmail.com","$argon2id$v=19$m=19456,t=2,p=1$bu7ilozTjfTl0BIpGcpf+w$9EfzE01omfSwpvC7PGLuH/3mtmjQF1V7n5b8Yc4QoI0", 1, "administrateur"),
+("Alex", "Taranne", "wild@gmail.com", "$argon2id$v=19$m=19456,t=2,p=1$bu7ilozTjfTl0BIpGcpf+w$9EfzE01omfSwpvC7PGLuH/3mtmjQF1V7n5b8Yc4QoI0", 0, "utilisateur" );
 insert into genre (name)
 VALUES
 ("Action"), ("Horreur"), ("Science-fiction"), ("Drame"), ("Romance"), ("Comédie"), ("Aventure"), ("Jeunesse"), ("Thriller"), ("Policier"), ("Criminel"), ("Fantastique"), ("Comédie musical"), ("Film d'animation"), ("Guerre"), ("Thriller érotique"), ("Prison"), ("Western");

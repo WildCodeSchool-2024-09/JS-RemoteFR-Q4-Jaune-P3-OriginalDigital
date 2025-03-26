@@ -13,7 +13,7 @@ const getMovies = () => {
 
 const getMovieById = (id: number) => {
   return axios
-    .get(`${API}/api/movies/${id}`)
+    .get(`${API}/api/movies/${id}`, { withCredentials: true })
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
@@ -110,6 +110,7 @@ const loginUser = (
   loginData: LoginData,
   navigate: ReturnType<typeof useNavigate>,
   setRole: (role: string) => void,
+  setSubscription: (subscription: boolean) => void,
 ) => {
   const notifySuccess = () =>
     toast.success("Bienvenue sur Original Digital 🚀", {
@@ -143,6 +144,7 @@ const loginUser = (
     .post(`${API}/api/login`, loginData, { withCredentials: true })
     .then(({ data }) => {
       setRole(data.role);
+      setSubscription(data.subscription);
       notifySuccess();
       setTimeout(() => {
         navigate(data.role === "administrateur" ? "/dashboard" : "/catalogue");
@@ -166,6 +168,40 @@ const viewFavorites = async () => {
   }
 };
 
+const editPremium = (navigate: ReturnType<typeof useNavigate>) => {
+  const notifySuccess = () =>
+    toast.success("Votre abonnement Premium a bien été activé 🚀", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+
+  return axios
+    .put(
+      `${API}/api/users/premium`,
+      {},
+      {
+        withCredentials: true,
+      },
+    )
+    .then((response) => {
+      if (response.status === 200) {
+        notifySuccess();
+        setTimeout(() => {
+          window.location.reload();
+          navigate("/catalogue");
+        }, 3000);
+      }
+    })
+    .catch((error) => console.error(error));
+};
+
 export {
   getAuthorization,
   getAuthorizationForUsersOrAdmin,
@@ -176,4 +212,5 @@ export {
   createUser,
   loginUser,
   viewFavorites,
+  editPremium,
 };

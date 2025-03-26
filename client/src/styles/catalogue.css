@@ -111,7 +111,7 @@
   }
 }
 
-.button-bottom {
+.button-premium {
   background-color: black;
   width: auto;
   color: var(--secondary-color);
@@ -119,10 +119,12 @@
   padding: 1rem 2rem;
   margin-top: 2rem;
   border-radius: var(--button-radius);
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 792px) {
   .first-container .img-container {
     height: 18rem;
+    margin-top: 1rem;
   }
 }

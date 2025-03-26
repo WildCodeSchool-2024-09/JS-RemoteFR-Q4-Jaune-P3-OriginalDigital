@@ -9,10 +9,12 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Catalogue from "./pages/Catalogue";
 import Dashboard from "./pages/Dashboard";
+import ErrorPage from "./pages/ErrorPage";
 import Forbidden from "./pages/Forbidden";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import MovieDetail from "./pages/MovieDetail";
+import Payment from "./pages/Payment";
 import Signup from "./pages/Signup";
 import {
   getAuthorization,
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
   {
     // The root path
     element: <App />, // Renders the App component for the home page
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -44,7 +47,11 @@ const router = createBrowserRouter([
       {
         path: "/movies/:id",
         element: <MovieDetail />,
-        loader: async ({ params }) => getMovieById(Number(params.id)),
+        loader: async ({ params }) => ({
+          movieId: await getMovieById(Number(params.id)),
+          movies: await getMovies(),
+        }),
+        errorElement: <Signup />,
       },
       {
         path: "/catalogue",
@@ -73,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
     // Try adding a new route! For example, "/about" with an About component
