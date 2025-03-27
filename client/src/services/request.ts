@@ -211,6 +211,6 @@ export {
   editMovie,
   createUser,
   loginUser,
-  viewFavorites,
   editPremium,
+  viewFavorites,
 };

@@ -5,16 +5,13 @@ import "../styles/catalogue.css";
 export default function Catalogue() {
   const { movies, favorite } = useLoaderData() as {
     movies: MovieType[];
-    favorite: WatchlistType[];
+    favorite: MovieType[];
   };
-
   const freeMovies = movies.filter((movie) => !movie.premium);
   const premiumMovies = movies.filter((movie) => movie.premium);
-  const favoriteMovies = favorite.filter((movie) => movie.id);
   const sfMovies = movies.filter((movie) =>
     movie.genres.includes("Science-fiction"),
   );
-
   return (
     <>
       <div className="first-container">
@@ -42,7 +39,7 @@ export default function Catalogue() {
         </section>
         <h2>Ma Liste</h2>
         <section className="movie-container">
-          {favoriteMovies.map((movie) => (
+          {favorite.map((movie) => (
             <MovieCards key={movie.id} movie={movie} />
           ))}
         </section>

@@ -11,7 +11,6 @@ export default function MovieDetail() {
 
   const movieId = movieData.movieId;
   const movies = movieData.movies;
-
   const sameGenre = movies
     .filter((movie) =>
       movie.genres.split(",").some((genre) => movieId.genres.includes(genre)),
@@ -49,20 +48,7 @@ export default function MovieDetail() {
             </summary>
             <p>{movieId.synopsis.substring(50)}</p>
           </details>
-          <FavoriteButton
-            id={movieId.id}
-            title={""}
-            release_year={0}
-            poster={""}
-            duration={""}
-            synopsis={""}
-            trailer={""}
-            casting={""}
-            production={""}
-            landscape_image={""}
-            genres={""}
-            premium={false}
-          />
+          <FavoriteButton movieId={movieId} />
         </div>
       </div>
       <div className="trailer">
