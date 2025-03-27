@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { Bounce, ToastContainer } from "react-toastify";
 import { editPremium } from "../services/request";
 import "../styles/paymentForm.css";
+import { useAuth } from "../services/AuthContext";
 
 export default function PaymentForm() {
   const navigate = useNavigate();
+  const { setSubscription } = useAuth();
   const [cardData, setCardData] = useState({
     cardName: "",
     cardNumbers: "",
@@ -66,7 +68,7 @@ export default function PaymentForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    editPremium(navigate);
+    editPremium(navigate, setSubscription);
   };
 
   return (
