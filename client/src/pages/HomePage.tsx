@@ -16,7 +16,7 @@ export default function HomePage() {
           votre adresse e-mail pour nous rejoindre.
         </p>
         <div className="input-mail">
-          <img src="/image-homepage.png" alt="" />
+          <img className="img-homepage" src="/image-homepage.png" alt="" />
         </div>
         <img src="/arrow-down.png" alt="" className="arrow" />
         <h2>Tendances Actuelles</h2>

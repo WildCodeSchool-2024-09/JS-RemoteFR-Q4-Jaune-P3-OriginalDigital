@@ -5,8 +5,7 @@
 }
 
 :root {
-  --title-font: "Poppins", sans-serif;
-  --body-font: verdana, sans-serif;
+  --body-font: "Poppins", verdana, sans-serif;
   --font-size: 1rem;
   --primary-color: black;
   --bg-button: #7e7e7e;

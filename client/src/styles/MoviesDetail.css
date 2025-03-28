@@ -102,4 +102,7 @@ details summary {
     font-size: 16px;
     color: rgb(102, 102, 102);
   }
+  p.movie-title {
+    max-width: 124px;
+  }
 }
