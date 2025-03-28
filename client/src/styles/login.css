@@ -1,103 +1,25 @@
 .login {
-  height: 70vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  margin: 1rem 0;
-  background-image: url("/bg-desktop.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: var(--button-radius);
-}
-.login .login-page {
-  font-family: var(--body-font);
-  background-color: rgba(255, 255, 255, 0.316);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: fit-content;
-  width: 60ch;
-  box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.387);
-  border-radius: var(--button-radius);
-  padding: 2rem 2rem 3rem 2rem;
-  h2 {
-    font-size: 2rem;
+  margin-top: 1rem;
+  form {
+    width: 326px;
   }
   p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    color: rgb(71, 71, 71);
+    margin-bottom: 0.5rem;
   }
-  button {
-    margin-top: 1rem;
-    font-size: 1rem;
-    background: var(--primary-color);
-    border: none;
-    letter-spacing: 0.6px;
+  a {
+    color: blue;
+  }
+  .login-input {
+    margin-top: 0.5rem;
+    background-color: gray;
     color: var(--secondary-color);
-    width: 10rem;
-  }
-  input {
-    margin-top: 1rem;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
-
-  input:hover {
-    border: none;
-    background-color: white;
-  }
-
-  button,
-  input {
-    border-radius: var(--button-radius);
-    width: 13.75rem;
-    margin-bottom: 1rem;
-  }
-
-  input {
-    padding: 0.7rem;
-  }
-
-  button {
-    padding: 1rem;
-  }
-
-  button:hover {
-    background-color: rgb(161, 161, 161);
-    color: black;
-    font-weight: 600;
-  }
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-bottom: 1rem;
-}
-.login-form:last-of-type {
-  margin-bottom: 0;
-}
-
-.container-form {
-  border-radius: var(--button-radius);
-  border: 1px solid rgba(0, 0, 0, 0.382);
-  padding: 1rem 2rem;
-  margin-top: 2rem;
-}
-
-@media only screen and (max-width: 650px) {
-  .login {
-    height: 80vh;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-  .login-page {
-    max-width: 336px;
-    padding: 0;
+  .login-input:hover {
+    background-color: var(--primary-color);
   }
 }

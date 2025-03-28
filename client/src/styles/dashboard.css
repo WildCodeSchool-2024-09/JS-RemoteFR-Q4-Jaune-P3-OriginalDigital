@@ -1,29 +1,24 @@
 .dashboard-left {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 1rem;
-  .button-container {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-  button {
-    background-color: var(--bg-button);
-    color: var(--secondary-color);
-    border: none;
-    border-radius: var(--button-radius);
-    padding: 0.5rem 1rem;
-    margin-bottom: 3rem;
-    cursor: pointer;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem;
+  gap: 1rem;
+}
+
+.dashboard-left > button {
+  width: 8rem;
+  background-color: var(--bg-button);
+  color: var(--secondary-color);
+  border-radius: var(--button-radius);
+  border: none;
+  padding: 0.5rem 0;
 }
 
 .dashboard-right {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 1rem;
   margin: 0 auto;
 }
@@ -36,19 +31,21 @@
 .dashboard-movies {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 7rem;
+  margin: 0 auto;
+  border: solid 1px #7e7e7e;
+  border-radius: var(--button-radius);
 }
 
 .dashboard-movies > img {
   height: 9rem;
   width: 7rem;
-  border-radius: var(--button-radius);
 }
 
 .dashboard-movies > p {
   color: var(--primary-color);
 }
-
 @media only screen and (min-width: 792px) {
   .button-container {
     button {

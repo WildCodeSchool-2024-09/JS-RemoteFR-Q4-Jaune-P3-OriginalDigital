@@ -25,7 +25,7 @@ h1 {
   font-size: 14px;
 }
 .bio {
-  font-size: 16px;
+  font-size: 14px;
 }
 .information-right {
   font-size: 14px;
@@ -101,5 +101,8 @@ details summary {
     margin-top: 4rem;
     font-size: 16px;
     color: rgb(102, 102, 102);
+  }
+  p.movie-title {
+    max-width: 124px;
   }
 }

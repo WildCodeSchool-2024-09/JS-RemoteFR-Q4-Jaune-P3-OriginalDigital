@@ -1,20 +1,18 @@
 .form-dashboard {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .submit-form {
-  margin: 0 auto;
-  margin-top: 0.5rem;
+  margin: 1rem;
   padding: 0.5rem;
   background-color: var(--bg-button);
   border: none;
   color: var(--secondary-color);
   border-radius: var(--button-radius);
-  cursor: pointer;
 }
-
 @media only screen and (min-width: 792px) {
   .form-dashboard {
     max-width: 792px;
