@@ -2,70 +2,104 @@ h1 {
   text-align: center;
 }
 
+.movie-titleDetail {
+  transform: translateY(-7.5rem);
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 32px;
+}
+
+.landscape {
+  border-radius: 6px;
+  height: auto;
+  width: 100%;
+}
+
 .container-movies {
-  background-color: #7e7e7e55;
+  transform: translateY(-3.5rem);
   display: flex;
   flex-direction: column;
-  margin: 2rem;
-  border-radius: 10px;
 }
-.complete-movie {
-  display: flex;
-  margin: 0 auto;
-  top: 1rem;
-  position: relative;
-  padding: 1rem;
-  width: 90%;
+.information-left {
+  font-size: 14px;
+}
+.bio {
+  font-size: 16px;
+}
+.information-right {
+  font-size: 14px;
+}
+
+.short-movie {
+  margin: 1rem 0;
+  border-radius: 6px;
 }
 
 .container-movies button {
-  position: relative;
   background: none;
   border: none;
   cursor: pointer;
   top: 1rem;
 }
 
-.container-movies h2 {
-  position: relative;
-  margin-left: 2rem;
-  top: 1rem;
-}
-
-.container-movies p {
-  margin-left: 2rem;
-  position: relative;
-  top: 1rem;
-  width: 85%;
-}
-
-.container-movies .informations {
-  display: flex;
-  align-self: start;
-}
-.container-movies .bio {
-  position: relative;
-  top: 1rem;
-  padding-bottom: 4rem;
-}
-
 details summary {
   list-style: none;
 }
 
-.trailer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 85%;
-  margin: 2rem;
-  background-color: #7e7e7e55;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.trailer,
-h2 {
-  gap: 1rem;
-  display: flex;
+@media only screen and (min-width: 1200px) {
+  .movie-titleDetail {
+    font-size: 56px;
+    transform: translateY(-28rem);
+  }
+  .landscape {
+    border-radius: 10px;
+    filter: brightness(70%);
+  }
+  .container-movies {
+    transform: translateY(-16rem);
+    .information-wrap {
+      display: flex;
+      flex-direction: wrap;
+      justify-content: space-between;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      color: white;
+      margin-bottom: 7rem;
+    }
+  }
+  .information-right {
+    max-width: 20vw;
+    p {
+      margin-bottom: 1rem;
+      border: 1px solid white;
+      padding: 0.3rem;
+      font-size: 12px;
+    }
+  }
+  .information-left {
+    p {
+      margin-bottom: 1rem;
+      border: 1px solid white;
+      padding: 0.3rem;
+      font-size: 12px;
+    }
+  }
+  .favorite-button {
+    color: white;
+  }
+  .favorite-button:hover {
+    color: black;
+  }
+  .short-movie {
+    width: 45%;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  .same-genre {
+    margin-top: 4rem;
+    font-size: 16px;
+    color: rgb(102, 102, 102);
+  }
 }
