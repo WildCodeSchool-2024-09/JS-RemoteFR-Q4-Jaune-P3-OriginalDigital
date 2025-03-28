@@ -54,10 +54,6 @@ interface UserType {
   subscription: boolean;
 }
 
-interface WatchlistType {
-  id: number;
-}
-
 interface LoginData {
   email: string;
   password: string;
@@ -69,4 +65,7 @@ interface CardData {
   expiryDay: string;
   cvv: string;
   country: string;
+}
+interface MovieDetailsProps {
+  movieId: MovieType;
 }

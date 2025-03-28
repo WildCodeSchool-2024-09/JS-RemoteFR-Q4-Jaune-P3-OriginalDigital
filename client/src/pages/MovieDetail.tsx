@@ -11,7 +11,6 @@ export default function MovieDetail() {
 
   const movieId = movieData.movieId;
   const movies = movieData.movies;
-
   const sameGenre = movies
     .filter((movie) =>
       movie.genres.split(",").some((genre) => movieId.genres.includes(genre)),
@@ -38,7 +37,7 @@ export default function MovieDetail() {
                 <summary>Voir plus</summary>
                 <p>{movieId.synopsis.substring(50)}</p>
               </details>
-              <FavoriteButton id={movieId.id} />
+              <FavoriteButton movieId={movieId} />
             </div>
             <div className="information-right">
               <p>casting : {movieId.casting}</p>
@@ -46,6 +45,22 @@ export default function MovieDetail() {
             </div>
           </div>
         </div>
+        <p>{movieId.genres}</p>
+        <p>{movieId.production}</p>
+        <p>{movieId.casting}</p>
+        <div className="bio">
+          <p>{movieId.synopsis.slice(0, 50)}...</p>
+          <details>
+            <summary>
+              <p>En savoir plus</p>
+            </summary>
+            <p>{movieId.synopsis.substring(50)}</p>
+          </details>
+          <FavoriteButton movieId={movieId} />
+        </div>
+      </div>
+      <div className="trailer">
+        <h2>Bande annonce</h2>
         <iframe
           className="short-movie"
           width="100%"

@@ -22,6 +22,7 @@ import {
   getMovieById,
   getMovies,
   getUsers,
+  viewFavorites,
 } from "./services/request";
 
 // Import additional components for new routes
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
         loader: async () => ({
           authorization: await getAuthorizationForUsersOrAdmin(),
           movies: await getMovies(),
+          favorite: await viewFavorites(),
         }),
         errorElement: <Forbidden />,
       },
