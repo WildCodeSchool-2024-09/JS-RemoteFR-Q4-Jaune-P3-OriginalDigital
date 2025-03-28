@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import "../styles/favorite.css";
 
-export default function FavoriteButton({ id }: WatchlistType) {
+export default function FavoriteButton({ movieId }: MovieDetailsProps) {
   const [isFavorite, setIsFavorite] = useState(false);
   const API = import.meta.env.VITE_API_URL;
 
@@ -10,7 +10,7 @@ export default function FavoriteButton({ id }: WatchlistType) {
     axios
       .post(
         `${API}/api/users/watchlist`,
-        { movie_id: id },
+        { movie_id: movieId.id },
         { withCredentials: true },
       )
       .then((response) => response.data)
@@ -21,7 +21,7 @@ export default function FavoriteButton({ id }: WatchlistType) {
   const handleToggleDeleteFavorite = () => {
     axios
       .delete(`${API}/api/users/watchlist`, {
-        data: { movie_id: id },
+        data: { movie_id: movieId.id },
         withCredentials: true,
       })
       .then((response) => response.data)

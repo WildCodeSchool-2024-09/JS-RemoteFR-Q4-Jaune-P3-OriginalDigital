@@ -156,6 +156,18 @@ const loginUser = (
     });
 };
 
+const viewFavorites = async () => {
+  try {
+    const response = await axios.get(`${API}/api/users/watchlist`, {
+      withCredentials: true,
+    });
+    return response.data.watchlist;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des favoris :", error);
+    throw error;
+  }
+};
+
 const editPremium = (
   navigate: ReturnType<typeof useNavigate>,
   setSubscription: (subscription: boolean) => void,
@@ -203,4 +215,5 @@ export {
   createUser,
   loginUser,
   editPremium,
+  viewFavorites,
 };
