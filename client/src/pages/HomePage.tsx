@@ -67,7 +67,7 @@ export default function HomePage() {
       </section>
       <div className="bottom-element">
         <h2>N'attendez plus!</h2>
-        <Link to="/">Se connecter</Link>
+        <Link to="/signup">Nous rejoindre</Link>
       </div>
     </section>
   );
