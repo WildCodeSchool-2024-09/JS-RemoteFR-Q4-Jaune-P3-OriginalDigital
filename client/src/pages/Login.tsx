@@ -26,54 +26,52 @@ export default function Login() {
     loginUser(credentials, navigate, setRole, setSubscription);
   };
   return (
-    <div>
-      <section className="login">
-        <form className="login-page" onSubmit={sendCredentials}>
-          <h2>Se Connecter</h2>
-          <p>
-            Vous pouvez vous connecter si vous possédez un compte, sinon vous
-            pouvez en créez un <Link to="/signup">ici</Link>
-          </p>
-          <div className="container-form">
-            <div className="login-form">
-              <label htmlFor="email">E-mail : </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Votre E-mail"
-                onChange={handleChangeCredentials}
-                value={credentials.email}
-              />
-            </div>
-            <div className="login-form">
-              <label htmlFor="password">Password : </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Votre Password"
-                onChange={handleChangeCredentials}
-                value={credentials.password}
-              />
-            </div>
-            <input type="submit" value="Continuer" />
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-              transition={Bounce}
+    <section className="login">
+      <form className="login-page" onSubmit={sendCredentials}>
+        <h2>Se connecter</h2>
+        <p>
+          Vous pouvez vous connecter si vous possédez un compte, sinon vous
+          pouvez en créez un <Link to="/signup">ici</Link>.
+        </p>
+        <div className="container-form">
+          <div className="login-form">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Votre email"
+              onChange={handleChangeCredentials}
+              value={credentials.email}
             />
           </div>
-        </form>
-      </section>
-    </div>
+          <div className="login-form">
+            <label htmlFor="password">Mot de passe</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Votre mot de passe"
+              onChange={handleChangeCredentials}
+              value={credentials.password}
+            />
+          </div>
+          <input type="submit" value="Continuer" className="login-input" />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
+        </div>
+      </form>
+    </section>
   );
 }
