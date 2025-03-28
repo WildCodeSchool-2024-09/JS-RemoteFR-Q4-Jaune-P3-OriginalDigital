@@ -2,64 +2,14 @@
   display: flex;
   flex-direction: column;
 }
-
-.confirmation-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  padding: 1rem;
-  transform: translate(-50%, -50%);
-  border-radius: var(--button-radius);
-  border: none;
-  animation: openModal 0.3s linear;
-  p {
-    margin-bottom: 1rem;
-  }
-  strong {
-    color: #575aef;
-  }
-  .confirmation-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    button {
-      padding: 0.5rem 0;
-      cursor: pointer;
-      border-radius: var(--button-radius);
-      border: none;
-    }
-  }
-  .confirm-button:hover {
-    background-color: gray;
-    color: var(--secondary-color);
-  }
-  .cancel-button {
-    background-color: red;
-    color: var(--secondary-color);
-  }
-  .cancel-button:hover {
-    background-color: rgba(255, 0, 0, 0.8);
-  }
-}
-
 .movie-edit {
   border: solid 1px #7e7e7e;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin: 1rem;
   padding: 1rem;
   border-radius: 5px;
-}
-
-.button-edit {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  button {
-    cursor: pointer;
-  }
 }
 
 .movie-edit > button {
@@ -68,53 +18,6 @@
   border-radius: var(--button-radius);
   border: none;
   padding: 0.5rem 0.5rem;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  border-radius: var(--button-radius);
-  border: none;
-  animation: openModal 0.3s linear;
-  button {
-    padding: 0.5rem 0;
-    cursor: pointer;
-    border-radius: var(--button-radius);
-    border: none;
-  }
-  .modify-form {
-    margin-bottom: 0.5rem;
-  }
-  .modify-form:hover {
-    background-color: gray;
-    color: var(--secondary-color);
-  }
-  .close-modal {
-    background-color: red;
-    color: var(--secondary-color);
-  }
-  .close-modal:hover {
-    background-color: rgba(255, 0, 0, 0.8);
-  }
-}
-
-::backdrop {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-@keyframes openModal {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @media only screen and (min-width: 792px) {

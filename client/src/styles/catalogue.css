@@ -1,23 +1,11 @@
-.movie-container::after {
-  background-color: rgb(161, 161, 161);
-
-  display: block;
-  height: 1px;
-  width: 90%;
-  content: "";
-  transform: translateY(15rem);
-}
-
-.movie-container:last-of-type::after {
-  display: none;
-}
-
 .decouvrir-nos-offres {
   border: none;
   background-color: black;
   color: var(--secondary-color);
-  padding: 0.5rem;
-  width: 10rem;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  width: 20rem;
   border-radius: var(--button-radius);
   text-align: center;
   display: flex;
@@ -46,6 +34,7 @@
 .first-container .img-container {
   max-height: 42rem;
   max-width: 100%;
+  border-radius: var(--button-radius);
 }
 
 .show-movies h2 {
@@ -94,10 +83,11 @@
 .bottom-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  gap: 4rem;
   height: auto;
   p {
     color: var(--secondary-color);
+    line-height: 2rem;
   }
 
   h3 {
@@ -113,7 +103,9 @@
 
 .button-premium {
   background-color: black;
-  width: auto;
+  width: 20rem;
+  font-size: 16px;
+  font-weight: 600;
   color: var(--secondary-color);
   border: none;
   padding: 1rem 2rem;
@@ -126,5 +118,23 @@
   .first-container .img-container {
     height: 18rem;
     margin-top: 1rem;
+  }
+  .connection-bottom {
+    margin-top: 0;
+    h2 {
+      font-size: 20px;
+    }
+  }
+  .bottom-container {
+    gap: 1rem;
+    h3 {
+      font-size: 16px;
+    }
+  }
+  .connection-bottom {
+    p {
+      font-size: 12px;
+      line-height: normal;
+    }
   }
 }

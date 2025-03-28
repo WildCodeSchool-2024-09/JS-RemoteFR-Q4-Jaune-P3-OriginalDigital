@@ -147,10 +147,14 @@ section > h2 {
     border-radius: var(--button-radius);
     width: 70%;
     color: var(--secondary-color);
-    padding: 3rem;
+    padding: 13rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    p {
+      line-height: 2.5rem;
+      color: var(--secondary-color);
+    }
   }
 
   .top-element {
@@ -158,11 +162,21 @@ section > h2 {
     flex-direction: column;
     width: calc(100% / 3);
     text-align: left;
+    h1 {
+      text-align: left;
+      margin: 0;
+      width: 50vh;
+    }
+    .img-homepage {
+      padding: 1rem 0;
+    }
   }
   .top-element > h2 {
     text-align: left;
     margin: 0;
     margin-top: 1rem;
+    font-size: 18px;
+    padding: 1rem 0;
   }
   .arrow {
     display: none;
@@ -172,10 +186,12 @@ section > h2 {
     border: none;
     background-color: black;
     color: var(--secondary-color);
-    padding: 0.5rem;
-    width: 15rem;
+    padding: 1rem;
+    width: 25rem;
     border-radius: var(--button-radius);
     margin-top: 4rem;
+    font-size: 16px;
+    font-weight: 600;
     a {
       color: var(--secondary-color);
     }
@@ -183,6 +199,9 @@ section > h2 {
 
   .middle-element > h2 {
     margin-top: 4rem;
+    font-size: 32px;
+    line-height: 3rem;
+    padding: 2rem;
   }
 
   .top-element > h1 {

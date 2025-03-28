@@ -1,24 +1,32 @@
 .logo {
   height: 4rem;
 }
+
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   button {
     border: none;
-    background-color: var(--bg-button);
+    background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: var(--button-radius);
+    font-weight: 600;
   }
 }
 
 .link-signup {
-  background-color: var(--bg-button);
+  background-color: var(--primary-color);
   color: var(--secondary-color);
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 16px;
   border-radius: var(--button-radius);
 }
 
@@ -31,7 +39,8 @@ nav {
 .nav-links a {
   text-decoration: none;
   color: var(--primary-color);
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .menu-icon {
@@ -39,10 +48,6 @@ nav {
 }
 .link-signup-mobile {
   display: none;
-}
-
-.disconnect-button {
-  cursor: pointer;
 }
 
 .disconnect-button-mobile {
